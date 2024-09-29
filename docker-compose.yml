@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  whatsapp-bot:
+    build: .
+    volumes:
+      - ./src:/app/src
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./public:/app/public
+    depends_on:
+      - mongodb
+    environment:
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+    networks:
+      - bot-network
+    ports:
+      - "3007:3000"
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - bot-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  bot-network:
+    driver: bridge

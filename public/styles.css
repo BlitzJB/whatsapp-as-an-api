@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#app {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+input, button {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 200px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#qr-code {
+    max-width: 200px;
+    margin-top: 1rem;
+}
+
+.instructions {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.instructions ol {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 5px;
+}
+
+.pairing-instructions {
+    background-color: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.pairing-instructions h2 {
+    margin-top: 0;
+    color: #2e7d32;
+}
+
+.pairing-instructions ol {
+    padding-left: 20px;
+}
+
+.pairing-instructions ul {
+    padding-left: 20px;
+}
+
+.pairing-instructions li {
+    margin-bottom: 10px;
+}
+
+.pairing-instructions ul li {
+    margin-bottom: 5px;
+}
