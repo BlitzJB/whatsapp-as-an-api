@@ -18,6 +18,7 @@ interface SendMessageRequest {
     receiverId: string;
     content: string;
     attachmentUrl?: string;
+    attachmentName?: string;
 }
 
 type GetIdParams = {
@@ -83,10 +84,10 @@ async function setupExpressServer(client: Client): Promise<void> {
             res.status(401).json({ error: 'Invalid passcode' });
             return;
         }
-        const { receiverId, content, attachmentUrl } = req.body;
+        const { receiverId, content, attachmentUrl, attachmentName } = req.body;
 
         try {
-            const media = attachmentUrl ? await MessageMedia.fromUrl(attachmentUrl, { unsafeMime: true }) : undefined;
+            const media = attachmentUrl ? await MessageMedia.fromUrl(attachmentUrl, { unsafeMime: true, filename: attachmentName ?? undefined }) : undefined;
             const chat: Chat = await client.getChatById(receiverId);
             await chat.sendMessage(content, { media });
 
